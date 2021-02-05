@@ -1,0 +1,9 @@
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .filter-div{
+    margin: 10px;
+  }
+}
