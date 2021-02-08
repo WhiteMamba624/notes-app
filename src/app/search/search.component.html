@@ -1,5 +1,5 @@
 <!-- <button mat-raised-button color="primary">Search</button> -->
 <mat-form-field>
-    <input matInput placeholder="Type Title">
+    <input #title matInput placeholder="Type Title" (blur)="searchedTitle(title.value)">
 </mat-form-field>
 <!-- [(ngModel)]="inputColor" -->

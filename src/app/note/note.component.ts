@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NoteComponent implements OnInit {
   @Input() selectedCategoryId: string;
+  @Input() searchedTitle:string;
   notes: Note[];
 
   constructor(private noteService: NoteService) {
@@ -15,13 +16,28 @@ export class NoteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.noteService.getNotes().subscribe((result)=>this.notes=result);
+     this.getNotes();
   }
   ngOnChanges(){
+    console.warn(this.searchedTitle);
     if (this.selectedCategoryId) {
       this.noteService.getFilteredNotes(this.selectedCategoryId).subscribe((result)=>this.notes=result);
     }
+    if(this.searchedTitle){
+      this.noteService.getSearchedNotes(this.searchedTitle).subscribe((result)=>this.notes=result);
+    }
+    else
+    {
+      this.getNotes();
+    }
 
+  }
+  delete(noteId : string ){
+    this.noteService.deleteNote(noteId).subscribe(() => this.getNotes());
+    console.log(this.delete);
+  }
+  getNotes(){
+    this.noteService.getNotes().subscribe((result)=>this.notes=result);
   }
 }
 

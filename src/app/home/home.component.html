@@ -1,5 +1,5 @@
 <app-filter (emitSelectedFilter)="receiveCategory($event)">
 </app-filter>
-<app-search></app-search>
-<app-note [selectedCategoryId]="selectedCategoryId"></app-note>
+<app-search (emitSearchedTitle)="receiveTitle($event)"></app-search>
+<app-note [selectedCategoryId]="selectedCategoryId" [searchedTitle]="searchedTitle"></app-note>
 <app-tools></app-tools>

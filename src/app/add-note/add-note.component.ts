@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { Category } from '../category';
 import { FilterService } from '../services/filter.service';
 import { NoteService } from '../services/note.service';
@@ -15,7 +15,7 @@ export class AddNoteComponent implements OnInit {
   description: string;
   categories:Category[];
   idCategoryNote:string;
-  constructor(private filterService:FilterService,private noteService:NoteService,private router:RouterLink) { }
+  constructor(private filterService:FilterService,private noteService:NoteService,private router: Router) { }
 
   ngOnInit(): void {
     console.warn();
@@ -25,6 +25,7 @@ export class AddNoteComponent implements OnInit {
 
   add() {
     this.noteService.addNote(this.title,this.description,this.idCategoryNote);
+    this.router.navigateByUrl('');
   }
 
 

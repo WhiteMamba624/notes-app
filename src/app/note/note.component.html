@@ -10,5 +10,8 @@
         {{ note.description }}
       </p>
     </mat-card-content>
+    <button mat-icon-button (click)="delete(note.id)">
+      <mat-icon>delete_outline</mat-icon>
+   </button>
   </mat-card>
 </div>

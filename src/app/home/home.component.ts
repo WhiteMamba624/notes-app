@@ -19,7 +19,7 @@ searchedTitle:string;
   }
   receiveTitle(title:string){
     this.searchedTitle=title;
-    console.log(title);
+    console.warn(title);
   }
 
 }
